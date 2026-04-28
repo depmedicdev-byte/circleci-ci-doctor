@@ -1,0 +1,52 @@
+{
+  "name": "circleci-ci-doctor",
+  "version": "0.1.0",
+  "description": "Audit .circleci/config.yml for cost, security, and reliability gaps. Sister project to ci-doctor, gitlab-ci-doctor, bitbucket-ci-doctor, azure-pipelines-ci-doctor.",
+  "keywords": [
+    "circleci",
+    "ci",
+    "cost",
+    "audit",
+    "lint",
+    "yaml",
+    "security",
+    "devops",
+    "cli",
+    "resource-class"
+  ],
+  "bin": {
+    "circleci-ci-doctor": "bin/circleci-ci-doctor.js"
+  },
+  "main": "src/index.js",
+  "type": "commonjs",
+  "files": [
+    "bin",
+    "src",
+    "examples",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "yaml": "^2.5.0"
+  },
+  "license": "MIT",
+  "author": "depmedic <depmedic.dev@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/depmedicdev-byte/circleci-ci-doctor.git"
+  },
+  "homepage": "https://github.com/depmedicdev-byte/circleci-ci-doctor#readme",
+  "bugs": {
+    "url": "https://github.com/depmedicdev-byte/circleci-ci-doctor/issues"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
+}

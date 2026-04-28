@@ -1,0 +1,41 @@
+version: 2.1
+
+orbs:
+  node: circleci/node@5
+  slack: circleci/slack@volatile
+
+executors:
+  default:
+    docker:
+      - image: cimg/node:18
+
+jobs:
+  build:
+    resource_class: 2xlarge
+    docker:
+      - image: cimg/node:latest
+    steps:
+      - checkout
+      - run: npm ci
+      - run: npm test
+      - run: |
+          echo "deploying"
+          echo "TOKEN=$GITHUB_TOKEN"
+      - run: env
+      - run:
+          name: long deploy
+          command: ./deploy.sh
+
+  iosbuild:
+    macos:
+      xcode: '15.0'
+    steps:
+      - checkout
+      - run: npm ci
+      - run: npm test
+
+workflows:
+  build-test:
+    jobs:
+      - build
+      - iosbuild
